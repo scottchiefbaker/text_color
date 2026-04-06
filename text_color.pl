@@ -130,24 +130,15 @@ sub usage {
 
 __DATA__
 
-{85}text_color.pl{} is great for login banners. Put the following in your {white}~/.bashrc{}:
+Welcome to the {51}__DATA__{} section of {121}text_color.pl{}!
 
-  # If it's an interactive terminal show the banner
-  if [[ $- == *i* ]]; then
-      ~/bin/text_color.pl ~/login_banner.txt
-
-      {228}# or{}
-
-      ~/bin/text_color.pl # Read from __DATA__
-  fi
-
-Use \{color} or \{123} to start a color, and \{} to end the color.
+{white}Syntax:{} Use \{color} or \{123} to start a color, and \{} to end the color.
 
 Valid colors: {red}red, {yellow}yellow, {blue}blue, {green}green, {orange}orange, {purple}purple, {white_on_black}white, {black_on_white}black{}.
 
 or the ANSI color number between 0 and 255.
 
-Background colors can be specified with {on_red}\{on_red}{}.
+Background colors can be specified with {on_red}\{on_red}{} or {yellow_on_blue}\{yellow_on_blue}{}.
 
 To insert a literal \{ you can escape it: \\{. Closing braces } do not need to
 be escaped.
