@@ -5,7 +5,8 @@ use warnings;
 use v5.16;
 use Getopt::Long;
 
-my $reset = color('reset');
+my $VERSION = v0.1.1;
+my $reset   = color('reset');
 
 if (!@ARGV) {
 	die(usage());
