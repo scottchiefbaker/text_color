@@ -11,22 +11,32 @@ if (!@ARGV) {
 	die(usage());
 }
 
-my $inline = 0;
+my $inline      = 0; # Read from __DATA__
+my $interactive = 0; # Require an interactive terminal
 
 GetOptions(
-	'inline' => \$inline,
+	'inline'      => \$inline,
+	'interactive' => \$interactive,
 );
 
 ###############################################################################
 ###############################################################################
 
 my $file = $ARGV[0] || "";
-my @lines;
 
+# Make sure the file is readable
 if ($file && !-r $file) {
 	die("Unable to read '$file'\n");
 }
 
+# Not an interactive terminal so we silently exit
+if ($interactive && (-t STDOUT == 0)) {
+	exit(9);
+}
+
+###############################################################################
+
+my @lines;
 if (-r $file) {
 	@lines = file_get_contents($file);
 } elsif ($inline) {
@@ -141,4 +151,3 @@ Background colors can be specified with {on_red}\{on_red}{}.
 
 To insert a literal \{ you can escape it: \\{. Closing braces } do not need to
 be escaped.
-
