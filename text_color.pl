@@ -3,8 +3,19 @@
 use strict;
 use warnings;
 use v5.16;
+use Getopt::Long;
 
 my $reset = color('reset');
+
+if (!@ARGV) {
+	die(usage());
+}
+
+my $inline = 0;
+
+GetOptions(
+	'inline' => \$inline,
+);
 
 ###############################################################################
 ###############################################################################
@@ -12,9 +23,13 @@ my $reset = color('reset');
 my $file = $ARGV[0] || "";
 my @lines;
 
+if ($file && !-r $file) {
+	die("Unable to read '$file'\n");
+}
+
 if (-r $file) {
 	@lines = file_get_contents($file);
-} else {
+} elsif ($inline) {
 	# Slurp in __DATA__
 	local $/ = undef;
 	my $str  = <DATA>;
@@ -22,6 +37,8 @@ if (-r $file) {
 	# Left trim whitespace
 	$str   =~ s/^\s+//;
 	@lines = split(/\n/, $str);
+} else {
+	die(usage());
 }
 
 foreach my $line (@lines) {
@@ -89,6 +106,15 @@ sub file_get_contents {
 		local $/       = undef; # Input rec separator (slurp)
 		return my $ret = readline($fh);
 	}
+}
+
+sub usage {
+	my $ret = color('yellow', "Usage:") . " \n\n";
+	$ret .= color('white', $0) . " [myfile.txt]\n\n";
+	$ret .= "or\n\n";
+	$ret .= color('white', $0) . " --inline\n";
+
+	return $ret;
 }
 
 
