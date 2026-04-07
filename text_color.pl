@@ -8,17 +8,19 @@ use Getopt::Long;
 my $VERSION = v0.1.1;
 my $reset   = color('reset');
 
-if (!@ARGV) {
-	die(usage());
-}
-
 my $inline      = 0; # Read from __DATA__
 my $interactive = 0; # Require an interactive terminal
+my $help        = 0;
 
 GetOptions(
 	'inline'      => \$inline,
 	'interactive' => \$interactive,
+	'help'        => \$help,
 );
+
+if (!@ARGV || $help) {
+	die(usage());
+}
 
 ###############################################################################
 ###############################################################################
