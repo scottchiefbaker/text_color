@@ -39,3 +39,5 @@ be escaped.
 
 **text_color** expects a 256 color compatible terminal. Most modern terminal emulators
 support this automatically.
+
+Example ANSI color codes can be found in `third-party/term-colors/term-colors.pl`
