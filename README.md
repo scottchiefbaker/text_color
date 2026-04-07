@@ -9,7 +9,9 @@ Place `text_color.pl` somewhere in your `$PATH`
 
 ### ✨ Usage:
 
-    text_color.pl [myfile.txt]
+```bash
+text_color.pl [myfile.txt]
+```
 
 **text_color** is useful for login banners. This can be accomplished by putting
 the following in your `~/.bashrc`:
