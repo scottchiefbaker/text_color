@@ -18,7 +18,7 @@ GetOptions(
 	'help'        => \$help,
 );
 
-if (!@ARGV || $help) {
+if ((!@ARGV && !$inline) || $help) {
 	die(usage());
 }
 
