@@ -4,6 +4,7 @@ use strict;
 use warnings;
 use v5.16;
 use Getopt::Long;
+use File::Basename;
 
 my $VERSION = v0.1.1;
 my $reset   = color('reset');
@@ -29,7 +30,12 @@ my $file = $ARGV[0] || "";
 
 # Make sure the file is readable
 if ($file && !-r $file) {
-	die("Unable to read '$file'\n");
+	my $script = basename($0);
+
+	$script = color('white_bold', "$script:");
+	$file   = color('228', $file);
+
+	die("$script Unable to read '$file'\n");
 }
 
 # Not an interactive terminal so we silently exit
