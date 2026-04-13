@@ -32,7 +32,7 @@ color.
 Valid textual are colors: red, yellow, blue, green, orange, purple, white, black.
 Alternately use the ANSI color number between 0 and 255.
 
-Background colors can be specified with `{on\_red}` or `{yellow\_on\_blue}`.
+Background colors can be specified with `{on_red}` or `{yellow_on_blue}`.
 
 To insert a literal `{` you can escape it: `\{`. Closing braces `}` do not need to
 be escaped.
