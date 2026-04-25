@@ -1,6 +1,6 @@
 ## 🔍 What is text\_color?
 
-A tool to simplify add color to text output. Colorizing text can increase
+A tool to simplify adding color to text output. Colorizing text can increase
 readability and aid comprehension.
 
 ### 📦 Installation:
