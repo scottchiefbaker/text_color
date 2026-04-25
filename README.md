@@ -19,7 +19,7 @@ the following in your `~/.bashrc`:
 ```bash
 # If it's an interactive terminal show the banner
 if [[ $- == *i* ]]; then
-  ~/bin/text_color.pl ~/.login_banner.txt
+    ~/bin/text_color.pl ~/.login_banner.txt
 fi
 ```
 
